@@ -1,0 +1,162 @@
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (9, 2, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Hoża 32', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (10, 4, N'Jan Kowalski', N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Hoża 32', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (11, 1, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Hoża 32', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (14, 5, NULL, NULL, N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Hoża 32', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (15, 1, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Michałowicza 50', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (16, 2, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Węglowa 22', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (17, 3, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Piastowska 12', 2, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (18, 4, N'Adam Małoważny', N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Michałowicza 50', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (19, 5, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Węglowa 22', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (30, 1, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Wyspiańskiego 12', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (31, 2, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Andrzeja Boboli 14', 12, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (32, 3, NULL, N'Polska', N'Śląskie', N'Katowicki', N'Katowice', N'40018', N'Katowice', N'Filipowa 15', NULL, NULL, N'Katowice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (33, 4, N'Michał Abram', N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Wyspiańskiego 12', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+INSERT [dbo].[Adres] ([ID], [IDTypuAdresu], [Adresat], [Kraj], [Wojewodztwo], [Powiat], [Miejscowosc], [KodPocztowy], [Gmina/Dzielnica], [Ulica], [NrLokalu], [NrNieruchomosci], [Poczta]) VALUES (34, 5, NULL, N'Polska', N'Śląskie', N'Bielski', N'Czechowice-Dziedzice', N'43502', N'Czechowice-Dziedzice', N'Górnicza 44', NULL, NULL, N'Czechowice-Dziedzice')
+GO
+SET IDENTITY_INSERT [dbo].[Adres] OFF
+GO
+SET IDENTITY_INSERT [dbo].[DzialalnoscGospodarcza] ON 
+GO
+INSERT [dbo].[DzialalnoscGospodarcza] ([ID], [IDAdresDzialalnosciGospodarczej], [IDAdresPrzechowywaniaKsiegowosci], [IDStatusuDzialalnosciGospodarczej], [IDKsiegowosci], [NazwaPrzedsiebiorcy], [NazwaSkrocona], [LiczbaPracownikow], [DataRozpoczeciaDzialalnosci], [NumerTelefonu], [NumerFaksu], [AdresEmail], [StronaWWW], [NaczelnikUrzeduSkarbowego], [ZakladPracyChronionej]) VALUES (6, 9, 9, 1, 1, N'Kopalnia Węgla Brunatnego "Górka"', N'GórPol', 50, CAST(N'2002-05-06' AS Date), N'444555666', NULL, NULL, NULL, N'Jarosław Małolepszy', 0)
+GO
+INSERT [dbo].[DzialalnoscGospodarcza] ([ID], [IDAdresDzialalnosciGospodarczej], [IDAdresPrzechowywaniaKsiegowosci], [IDStatusuDzialalnosciGospodarczej], [IDKsiegowosci], [NazwaPrzedsiebiorcy], [NazwaSkrocona], [LiczbaPracownikow], [DataRozpoczeciaDzialalnosci], [NumerTelefonu], [NumerFaksu], [AdresEmail], [StronaWWW], [NaczelnikUrzeduSkarbowego], [ZakladPracyChronionej]) VALUES (7, 16, 17, 1, 2, N'Studio Nagraniowe Małoważne', N'Małoważne', 2, CAST(N'2008-12-12' AS Date), N'794543667', NULL, NULL, N'Małowazny.muzyka.pl', N'Jarosław Małolepszy', 0)
+GO
+INSERT [dbo].[DzialalnoscGospodarcza] ([ID], [IDAdresDzialalnosciGospodarczej], [IDAdresPrzechowywaniaKsiegowosci], [IDStatusuDzialalnosciGospodarczej], [IDKsiegowosci], [NazwaPrzedsiebiorcy], [NazwaSkrocona], [LiczbaPracownikow], [DataRozpoczeciaDzialalnosci], [NumerTelefonu], [NumerFaksu], [AdresEmail], [StronaWWW], [NaczelnikUrzeduSkarbowego], [ZakladPracyChronionej]) VALUES (14, 31, 32, 1, 3, N'Biuro Rachunkowe "Papier"', N'Papier', 5, CAST(N'2010-05-12' AS Date), N'221345223', NULL, NULL, N'Papier.papier.com', N'Kamil Konieczny', 0)
+GO
+SET IDENTITY_INSERT [dbo].[DzialalnoscGospodarcza] OFF
+GO
+SET IDENTITY_INSERT [dbo].[DzialalnoscPKD] ON 
+GO
+INSERT [dbo].[DzialalnoscPKD] ([ID], [IDDzialalnosciGospodarczej], [IDPKD]) VALUES (1, 6, 1)
+GO
+SET IDENTITY_INSERT [dbo].[DzialalnoscPKD] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Ksiegowosc] ON 
+GO
+INSERT [dbo].[Ksiegowosc] ([ID], [Imie], [Nazwisko], [NIP]) VALUES (1, N'Aneta', N'Kozidrag', N'9876543210')
+GO
+INSERT [dbo].[Ksiegowosc] ([ID], [Imie], [Nazwisko], [NIP]) VALUES (2, N'Karyna', N'Maryna', N'6543217890')
+GO
+INSERT [dbo].[Ksiegowosc] ([ID], [Imie], [Nazwisko], [NIP]) VALUES (3, N'Mariusz', N'Dobromir', N'7465839210')
+GO
+SET IDENTITY_INSERT [dbo].[Ksiegowosc] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Nieruchomosc] ON 
+GO
+INSERT [dbo].[Nieruchomosc] ([ID], [IDDzialalnosciGospodarczej], [IDRodzajuNieruchomosci], [IDAdresu], [PowierzchniaCalkowita], [PowierzchniaOpodatkowana]) VALUES (1, 6, 6, 14, 200, 20)
+GO
+INSERT [dbo].[Nieruchomosc] ([ID], [IDDzialalnosciGospodarczej], [IDRodzajuNieruchomosci], [IDAdresu], [PowierzchniaCalkowita], [PowierzchniaOpodatkowana]) VALUES (3, 7, 7, 19, 60, 60)
+GO
+INSERT [dbo].[Nieruchomosc] ([ID], [IDDzialalnosciGospodarczej], [IDRodzajuNieruchomosci], [IDAdresu], [PowierzchniaCalkowita], [PowierzchniaOpodatkowana]) VALUES (4, 14, 1, 34, 499, 329)
+GO
+SET IDENTITY_INSERT [dbo].[Nieruchomosc] OFF
+GO
+SET IDENTITY_INSERT [dbo].[PKD] ON 
+GO
+INSERT [dbo].[PKD] ([ID], [Sekcja], [Dzial], [Grupa], [NazwaGrupowania]) VALUES (1, N'Sekcja B – Górnictwo i wydobywanie', N'05', N'05.2', N'Wydobywanie węgla brunatnego (lignitu)')
+GO
+INSERT [dbo].[PKD] ([ID], [Sekcja], [Dzial], [Grupa], [NazwaGrupowania]) VALUES (3, N'Sekcja J – Informacja i komunikacja', N'59', N'59.2', N'Działalność w zakresie nagrań dźwiękowych i muzycznych')
+GO
+INSERT [dbo].[PKD] ([ID], [Sekcja], [Dzial], [Grupa], [NazwaGrupowania]) VALUES (4, N'Sekcja K – Działalność finansowa i ubezpieczeniowa', N'64', N'64.2', N'Działalność holdingów finansowych')
+GO
+SET IDENTITY_INSERT [dbo].[PKD] OFF
+GO
+SET IDENTITY_INSERT [dbo].[RodzajNieruchomosci] ON 
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (1, N'Grunt', 0.82, N'związanych z prowadzeniem działalności gospodarczej, bez względu na sposób zakwalifikowania
+w ewidencji gruntów i budynków')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (2, N'Grunt', 4.28, N'pod wodami powierzchniowymi stojącymi lub wodami powierzchniowymi płynącymi jezior
+i zbiorników sztucznych')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (3, N'Grunt', 0.03, N' oznaczonych w ewidencji gruntów i budynków jako użytek o symbolu dr – droga, jeśli nie są zajęte pod
+budowle drogi, a faktycznie są użytkowane rolniczo')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (4, N'Grunt', 0.3, N'pozostałych, w tym zajętych na prowadzenie odpłatnej statutowej działalności pożytku publicznego
+przez organizacje pożytku publicznego')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (5, N'Grunt', 2.98, N'niezabudowanych objętych obszarem rewitalizacji, o którym mowa w ustawie z dnia 9 października
+2015 r. o rewitalizacji (t.j. Dz. U. z 2018 r. poz. 1398 z późn. zm.) i położonych na terenach, dla których
+miejscowy plan zagospodarowania przestrzennego przewiduje przeznaczenie pod zabudowę
+mieszkaniową, usługową albo zabudowę o przeznaczeniu mieszanym obejmującym wyłącznie te rodzaje
+zabudowy, jeżeli od dnia wejścia w życie tego planu w odniesieniu do tych gruntów upłynął okres 4 lat,
+a w tym czasie nie zakończono budowy zgodnie z przepisami prawa budowlanego – 2,98 zł od 1 m2
+powierzchni')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (6, N'Budynek', 0.7, N'mieszkalnych od powierzchni użytkowej')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (7, N'Budynek', 22.91, N'związanych z prowadzeniem działalności gospodarczej oraz od budynków mieszkalnych lub ich
+części zajętych na prowadzenie działalności gospodarczej')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (8, N'Budynek', 10.25, N'zajętych na prowadzenie działalności gospodarczej w zakresie obrotu kwalifikowanym materiałem
+siewnym')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (9, N'Budynek', 4.84, N'związanych z udzielaniem świadczeń zdrowotnych w rozumieniu przepisów o działalności leczniczej,
+zajętych przez podmioty udzielające tych świadczeń ')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (10, N'Budynek', 5.82, N' pozostałych, w tym zajętych na prowadzenie odpłatnej statutowej działalności pożytku publicznego
+przez organizacje pożytku publicznego ')
+GO
+INSERT [dbo].[RodzajNieruchomosci] ([ID], [NazwaRodzajuNieruchomosci], [StawkaOpodatkowania], [Opis]) VALUES (11, N'Budowla', 0.02, N'2% ich wartości określonej na podstawie art. 4 ust. 1 pkt 3 i ust. 3-7 ustawy z dnia 12 stycznia
+1991 r. o podatkach i opłatach lokalnych (t.j. Dz. U. z 2019 r. poz. 1170 z późn. zm.).
+')
+GO
+SET IDENTITY_INSERT [dbo].[RodzajNieruchomosci] OFF
+GO
+SET IDENTITY_INSERT [dbo].[StatusDzialalnosciGospodarczej] ON 
+GO
+INSERT [dbo].[StatusDzialalnosciGospodarczej] ([ID], [Nazwa]) VALUES (1, N'Aktywna')
+GO
+INSERT [dbo].[StatusDzialalnosciGospodarczej] ([ID], [Nazwa]) VALUES (2, N'Zawieszona')
+GO
+INSERT [dbo].[StatusDzialalnosciGospodarczej] ([ID], [Nazwa]) VALUES (3, N'Zamknięta')
+GO
+SET IDENTITY_INSERT [dbo].[StatusDzialalnosciGospodarczej] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TypAdresu] ON 
+GO
+INSERT [dbo].[TypAdresu] ([ID], [Nazwa]) VALUES (1, N'Adres Zamieszkania')
+GO
+INSERT [dbo].[TypAdresu] ([ID], [Nazwa]) VALUES (2, N'Adres Dzialalnosci Gospodarczej')
+GO
+INSERT [dbo].[TypAdresu] ([ID], [Nazwa]) VALUES (3, N'Adres Przechowywania Ksiegowosci')
+GO
+INSERT [dbo].[TypAdresu] ([ID], [Nazwa]) VALUES (4, N'Adres Doreczen')
+GO
+INSERT [dbo].[TypAdresu] ([ID], [Nazwa]) VALUES (5, N'Adres Nieruchomosci')
+GO
+SET IDENTITY_INSERT [dbo].[TypAdresu] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Wlasciciel] ON 
+GO
+INSERT [dbo].[Wlasciciel] ([ID], [IDAdresDoreczen], [IDAdresZamieszkania], [Imie], [Nazwisko], [ImieOjca], [ImieMatki], [DrugieImie], [DataUrodzenia], [PESEL], [Plec], [NIP], [REGON], [RodzajDokumentu], [SeriaNumerDokumentu], [RodzajUbezpieczenia], [WspolnoscMajatkowa], [CzyWspolnoscMajatkowaUstala], [DataUstaniaWspolnosci]) VALUES (4, 10, 11, N'Jan', N'Kowalski', N'Andrzej', N'Karyna', N'Marek', CAST(N'1992-05-06' AS Date), N'92050605937', N'Mężczyzna', 1234567890, NULL, N'Dowód Tożsamości', N'CEU 123456', N'ZUS', 0, NULL, NULL)
+GO
+INSERT [dbo].[Wlasciciel] ([ID], [IDAdresDoreczen], [IDAdresZamieszkania], [Imie], [Nazwisko], [ImieOjca], [ImieMatki], [DrugieImie], [DataUrodzenia], [PESEL], [Plec], [NIP], [REGON], [RodzajDokumentu], [SeriaNumerDokumentu], [RodzajUbezpieczenia], [WspolnoscMajatkowa], [CzyWspolnoscMajatkowaUstala], [DataUstaniaWspolnosci]) VALUES (9, 18, 15, N'Adam', N'Małoważny', N'Kamil', N'Anna', N'Wojciech', CAST(N'1972-03-12' AS Date), N'72031245869', N'Mężczyzna', 1209384756, NULL, N'Paszport', N'DF 145824', N'ZUS', 0, NULL, NULL)
+GO
+INSERT [dbo].[Wlasciciel] ([ID], [IDAdresDoreczen], [IDAdresZamieszkania], [Imie], [Nazwisko], [ImieOjca], [ImieMatki], [DrugieImie], [DataUrodzenia], [PESEL], [Plec], [NIP], [REGON], [RodzajDokumentu], [SeriaNumerDokumentu], [RodzajUbezpieczenia], [WspolnoscMajatkowa], [CzyWspolnoscMajatkowaUstala], [DataUstaniaWspolnosci]) VALUES (11, 33, 30, N'Michał', N'Abram', N'Franciszek', N'Judyta', N'Karolina', CAST(N'1986-04-30' AS Date), N'96043012333', N'Mężczyzna', 1593827164, NULL, N'Dowód Tożsamowści', N'CEU 994212', N'ZUS', 1, 0, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Wlasciciel] OFF
+GO
+SET IDENTITY_INSERT [dbo].[WlascicielDzialalnoscGospodarcza] ON 
+GO
+INSERT [dbo].[WlascicielDzialalnoscGospodarcza] ([ID], [IDWlasciciela], [IDDzialalnosciGospodarczej]) VALUES (1, 4, 6)
+GO
+INSERT [dbo].[WlascicielDzialalnoscGospodarcza] ([ID], [IDWlasciciela], [IDDzialalnosciGospodarczej]) VALUES (2, 9, 7)
+GO
+INSERT [dbo].[WlascicielDzialalnoscGospodarcza] ([ID], [IDWlasciciela], [IDDzialalnosciGospodarczej]) VALUES (3, 11, 14)
+GO
+SET IDENTITY_INSERT [dbo].[WlascicielDzialalnoscGospodarcza] OFF
+GO

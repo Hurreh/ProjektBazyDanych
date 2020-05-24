@@ -1,0 +1,378 @@
+USE [master]
+GO
+/****** Object:  Database [BazaNaProjekt]    Script Date: 20.05.2020 21:52:55 ******/
+CREATE DATABASE [BazaNaProjekt]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'BazaNaProjekt', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\BazaNaProjekt.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'BazaNaProjekt_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\BazaNaProjekt_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [BazaNaProjekt] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [BazaNaProjekt].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [BazaNaProjekt] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [BazaNaProjekt] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [BazaNaProjekt] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [BazaNaProjekt] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [BazaNaProjekt] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [BazaNaProjekt] SET  MULTI_USER 
+GO
+ALTER DATABASE [BazaNaProjekt] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [BazaNaProjekt] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [BazaNaProjekt] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [BazaNaProjekt] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [BazaNaProjekt] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [BazaNaProjekt] SET QUERY_STORE = OFF
+GO
+USE [BazaNaProjekt]
+GO
+/****** Object:  Table [dbo].[Adres]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Adres](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDTypuAdresu] [int] NOT NULL,
+	[Adresat] [nvarchar](20) NULL,
+	[Kraj] [nvarchar](20) NULL,
+	[Wojewodztwo] [nvarchar](20) NOT NULL,
+	[Powiat] [nvarchar](20) NOT NULL,
+	[Miejscowosc] [nvarchar](20) NOT NULL,
+	[KodPocztowy] [nvarchar](6) NOT NULL,
+	[Gmina/Dzielnica] [nvarchar](20) NOT NULL,
+	[Ulica] [nvarchar](20) NOT NULL,
+	[NrLokalu] [int] NULL,
+	[NrNieruchomosci] [int] NULL,
+	[Poczta] [nvarchar](20) NULL,
+ CONSTRAINT [PK_Adres] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DzialalnoscGospodarcza]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DzialalnoscGospodarcza](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDAdresDzialalnosciGospodarczej] [int] NOT NULL,
+	[IDAdresPrzechowywaniaKsiegowosci] [int] NULL,
+	[IDStatusuDzialalnosciGospodarczej] [int] NOT NULL,
+	[IDKsiegowosci] [int] NOT NULL,
+	[NazwaPrzedsiebiorcy] [nvarchar](80) NOT NULL,
+	[NazwaSkrocona] [nvarchar](50) NOT NULL,
+	[LiczbaPracownikow] [int] NOT NULL,
+	[DataRozpoczeciaDzialalnosci] [date] NOT NULL,
+	[NumerTelefonu] [nvarchar](20) NOT NULL,
+	[NumerFaksu] [int] NULL,
+	[AdresEmail] [nvarchar](50) NULL,
+	[StronaWWW] [nvarchar](50) NULL,
+	[NaczelnikUrzeduSkarbowego] [nvarchar](50) NOT NULL,
+	[ZakladPracyChronionej] [bit] NOT NULL,
+ CONSTRAINT [PK_DzialalnoscGospodarcza] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [FK_AdresDzialalnosci] UNIQUE NONCLUSTERED 
+(
+	[IDAdresDzialalnosciGospodarczej] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [FK_AdresPrzechowywaniaKsiegowosci] UNIQUE NONCLUSTERED 
+(
+	[IDAdresPrzechowywaniaKsiegowosci] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DzialalnoscPKD]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DzialalnoscPKD](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDDzialalnosciGospodarczej] [int] NOT NULL,
+	[IDPKD] [int] NOT NULL,
+ CONSTRAINT [PK__Dzialaln__3214EC076C2AEE10] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ksiegowosc]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ksiegowosc](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Imie] [nvarchar](20) NOT NULL,
+	[Nazwisko] [nvarchar](20) NOT NULL,
+	[NIP] [nvarchar](15) NOT NULL,
+ CONSTRAINT [PK_Ksiegowosc] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Nieruchomosc]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Nieruchomosc](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDDzialalnosciGospodarczej] [int] NOT NULL,
+	[IDRodzajuNieruchomosci] [int] NOT NULL,
+	[IDAdresu] [int] NOT NULL,
+	[PowierzchniaCalkowita] [float] NOT NULL,
+	[PowierzchniaOpodatkowana] [float] NOT NULL,
+ CONSTRAINT [PK_Nieruchomosc] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [FK_Nieruchomosc] UNIQUE NONCLUSTERED 
+(
+	[IDAdresu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PKD]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PKD](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Sekcja] [nvarchar](50) NOT NULL,
+	[Dzial] [nvarchar](10) NOT NULL,
+	[Grupa] [nvarchar](10) NOT NULL,
+	[NazwaGrupowania] [nvarchar](80) NOT NULL,
+ CONSTRAINT [PK_PKD] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RodzajNieruchomosci]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RodzajNieruchomosci](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[NazwaRodzajuNieruchomosci] [nvarchar](20) NOT NULL,
+	[StawkaOpodatkowania] [float] NOT NULL,
+	[Opis] [nvarchar](1000) NOT NULL,
+ CONSTRAINT [PK__RodzajNi__CEB63040CAEAC5BB] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StatusDzialalnosciGospodarczej]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StatusDzialalnosciGospodarczej](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Nazwa] [nvarchar](20) NOT NULL,
+ CONSTRAINT [PK__StatusDz__B0BE5159A896A7F1] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TypAdresu]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TypAdresu](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Nazwa] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK__TypAdres__0EF376C8C4B07056] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Wlasciciel]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Wlasciciel](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDAdresDoreczen] [int] NOT NULL,
+	[IDAdresZamieszkania] [int] NOT NULL,
+	[Imie] [nvarchar](20) NOT NULL,
+	[Nazwisko] [nvarchar](20) NOT NULL,
+	[ImieOjca] [nvarchar](20) NOT NULL,
+	[ImieMatki] [nvarchar](20) NOT NULL,
+	[DrugieImie] [nvarchar](20) NULL,
+	[DataUrodzenia] [date] NOT NULL,
+	[PESEL] [nvarchar](15) NOT NULL,
+	[Plec] [nvarchar](10) NOT NULL,
+	[NIP] [int] NOT NULL,
+	[REGON] [int] NULL,
+	[RodzajDokumentu] [nvarchar](30) NOT NULL,
+	[SeriaNumerDokumentu] [nvarchar](30) NOT NULL,
+	[RodzajUbezpieczenia] [nvarchar](30) NOT NULL,
+	[WspolnoscMajatkowa] [bit] NOT NULL,
+	[CzyWspolnoscMajatkowaUstala] [bit] NULL,
+	[DataUstaniaWspolnosci] [date] NULL,
+ CONSTRAINT [PK_Wlasciciel] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [FK_AdresDoreczen] UNIQUE NONCLUSTERED 
+(
+	[IDAdresDoreczen] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [FK_AdresZamieszkania] UNIQUE NONCLUSTERED 
+(
+	[IDAdresZamieszkania] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[WlascicielDzialalnoscGospodarcza]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WlascicielDzialalnoscGospodarcza](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[IDWlasciciela] [int] NOT NULL,
+	[IDDzialalnosciGospodarczej] [int] NOT NULL,
+ CONSTRAINT [PK__Wlascici__3214EC076F598430] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Adres]  WITH NOCHECK ADD  CONSTRAINT [FK_Adres_AdresPrzechowywania Ksiegowosci] FOREIGN KEY([ID])
+REFERENCES [dbo].[DzialalnoscGospodarcza] ([IDAdresPrzechowywaniaKsiegowosci])
+GO
+ALTER TABLE [dbo].[Adres] NOCHECK CONSTRAINT [FK_Adres_AdresPrzechowywania Ksiegowosci]
+GO
+ALTER TABLE [dbo].[Adres]  WITH CHECK ADD  CONSTRAINT [FK_Adres_TypAdresu] FOREIGN KEY([IDTypuAdresu])
+REFERENCES [dbo].[TypAdresu] ([ID])
+GO
+ALTER TABLE [dbo].[Adres] CHECK CONSTRAINT [FK_Adres_TypAdresu]
+GO
+ALTER TABLE [dbo].[DzialalnoscGospodarcza]  WITH NOCHECK ADD  CONSTRAINT [FK_DzialalnoscGospodarcza_AdresDzialalnosci] FOREIGN KEY([IDAdresDzialalnosciGospodarczej])
+REFERENCES [dbo].[Adres] ([ID])
+GO
+ALTER TABLE [dbo].[DzialalnoscGospodarcza] NOCHECK CONSTRAINT [FK_DzialalnoscGospodarcza_AdresDzialalnosci]
+GO
+ALTER TABLE [dbo].[DzialalnoscGospodarcza]  WITH CHECK ADD  CONSTRAINT [FK_DzialalnoscGospodarcza_Ksiegowosc] FOREIGN KEY([IDKsiegowosci])
+REFERENCES [dbo].[Ksiegowosc] ([ID])
+GO
+ALTER TABLE [dbo].[DzialalnoscGospodarcza] CHECK CONSTRAINT [FK_DzialalnoscGospodarcza_Ksiegowosc]
+GO
+ALTER TABLE [dbo].[DzialalnoscGospodarcza]  WITH CHECK ADD  CONSTRAINT [FK_DzialalnoscGospodarcza_StatusDzialalnosciGopodarczej] FOREIGN KEY([IDStatusuDzialalnosciGospodarczej])
+REFERENCES [dbo].[StatusDzialalnosciGospodarczej] ([ID])
+GO
+ALTER TABLE [dbo].[DzialalnoscGospodarcza] CHECK CONSTRAINT [FK_DzialalnoscGospodarcza_StatusDzialalnosciGopodarczej]
+GO
+ALTER TABLE [dbo].[DzialalnoscPKD]  WITH CHECK ADD  CONSTRAINT [FK_DzialalnoscPKD_DzialalnoscGospodarcza] FOREIGN KEY([IDDzialalnosciGospodarczej])
+REFERENCES [dbo].[DzialalnoscGospodarcza] ([ID])
+GO
+ALTER TABLE [dbo].[DzialalnoscPKD] CHECK CONSTRAINT [FK_DzialalnoscPKD_DzialalnoscGospodarcza]
+GO
+ALTER TABLE [dbo].[DzialalnoscPKD]  WITH CHECK ADD  CONSTRAINT [FK_DzialalnoscPKD_PKD] FOREIGN KEY([IDPKD])
+REFERENCES [dbo].[PKD] ([ID])
+GO
+ALTER TABLE [dbo].[DzialalnoscPKD] CHECK CONSTRAINT [FK_DzialalnoscPKD_PKD]
+GO
+ALTER TABLE [dbo].[Nieruchomosc]  WITH CHECK ADD  CONSTRAINT [FK_Nieruchomosc_Adres] FOREIGN KEY([IDAdresu])
+REFERENCES [dbo].[Adres] ([ID])
+GO
+ALTER TABLE [dbo].[Nieruchomosc] CHECK CONSTRAINT [FK_Nieruchomosc_Adres]
+GO
+ALTER TABLE [dbo].[Nieruchomosc]  WITH CHECK ADD  CONSTRAINT [FK_Nieruchomosc_DzialalnoscGospodarcza] FOREIGN KEY([IDDzialalnosciGospodarczej])
+REFERENCES [dbo].[DzialalnoscGospodarcza] ([ID])
+GO
+ALTER TABLE [dbo].[Nieruchomosc] CHECK CONSTRAINT [FK_Nieruchomosc_DzialalnoscGospodarcza]
+GO
+ALTER TABLE [dbo].[Nieruchomosc]  WITH CHECK ADD  CONSTRAINT [FK_Nieruchomosc_RodzajNieruchomosci] FOREIGN KEY([IDRodzajuNieruchomosci])
+REFERENCES [dbo].[RodzajNieruchomosci] ([ID])
+GO
+ALTER TABLE [dbo].[Nieruchomosc] CHECK CONSTRAINT [FK_Nieruchomosc_RodzajNieruchomosci]
+GO
+ALTER TABLE [dbo].[Wlasciciel]  WITH CHECK ADD  CONSTRAINT [FK_Wlasciciel_Adres] FOREIGN KEY([IDAdresDoreczen])
+REFERENCES [dbo].[Adres] ([ID])
+GO
+ALTER TABLE [dbo].[Wlasciciel] CHECK CONSTRAINT [FK_Wlasciciel_Adres]
+GO
+ALTER TABLE [dbo].[Wlasciciel]  WITH CHECK ADD  CONSTRAINT [FK_Wlasciciel_Adres2] FOREIGN KEY([IDAdresZamieszkania])
+REFERENCES [dbo].[Adres] ([ID])
+GO
+ALTER TABLE [dbo].[Wlasciciel] CHECK CONSTRAINT [FK_Wlasciciel_Adres2]
+GO
+ALTER TABLE [dbo].[WlascicielDzialalnoscGospodarcza]  WITH CHECK ADD  CONSTRAINT [FK_WlascicielDzialalnoscGospodarcza_DzialalnoscGospodarcza] FOREIGN KEY([IDDzialalnosciGospodarczej])
+REFERENCES [dbo].[DzialalnoscGospodarcza] ([ID])
+GO
+ALTER TABLE [dbo].[WlascicielDzialalnoscGospodarcza] CHECK CONSTRAINT [FK_WlascicielDzialalnoscGospodarcza_DzialalnoscGospodarcza]
+GO
+ALTER TABLE [dbo].[WlascicielDzialalnoscGospodarcza]  WITH CHECK ADD  CONSTRAINT [FK_WlascicielDzialalnoscGospodarcza_Wlasciciel] FOREIGN KEY([IDWlasciciela])
+REFERENCES [dbo].[Wlasciciel] ([ID])
+GO
+ALTER TABLE [dbo].[WlascicielDzialalnoscGospodarcza] CHECK CONSTRAINT [FK_WlascicielDzialalnoscGospodarcza_Wlasciciel]
+GO

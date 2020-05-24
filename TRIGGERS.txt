@@ -1,0 +1,174 @@
+/****** Object:  Trigger [dbo].[trgSprawdzPowierzchnie]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--Trigger pierwszy
+
+
+
+
+--CREATE TRIGGER trgSprawdzPesel ON Wlasciciel
+--INSTEAD OF INSERT
+--AS
+
+--BEGIN
+
+--	DECLARE @PESEL nvarchar(10);
+--	SET	@PESEL = (SELECT PESEL FROM inserted);
+--	IF((LEN(@PESEL) != 9))
+--		BEGIN 
+--		RAISERROR('niepoprawny PESEL', 14,1)
+--		RETURN;
+--		END
+--		ELSE
+--		BEGIN
+
+
+--	INSERT INTO Wlasciciel(	IDAdresDoreczen, 
+--							IDAdresZamieszkania, 
+--							Imie, 
+--							Nazwisko, 
+--							ImieOjca, 
+--							ImieMatki, 
+--							DrugieImie, 
+--							DataUrodzenia, 
+--							PESEL, 
+--							Plec, 
+--							NIP, 
+--							REGON, 
+--							RodzajDokumentu, 
+--							SeriaNumerDokumentu, 
+--							RodzajUbezpieczenia, 
+--							WspolnoscMajatkowa, 
+--							CzyWspolnoscMajatkowaUstala, 
+--							DataUstaniaWspolnosci
+--							)
+--	SELECT					IDAdresDoreczen, 
+--							IDAdresZamieszkania, 
+--							Imie, 
+--							Nazwisko, 
+--							ImieOjca, 
+--							ImieMatki, 
+--							DrugieImie, 
+--							DataUrodzenia, 
+--							PESEL, 
+--							Plec, 
+--							NIP, 
+--							REGON, 
+--							RodzajDokumentu, 
+--							SeriaNumerDokumentu, 
+--							RodzajUbezpieczenia, 
+--							WspolnoscMajatkowa, 
+--							CzyWspolnoscMajatkowaUstala, 
+--							DataUstaniaWspolnosci
+--	FROM inserted
+--	END
+--END
+
+--Trigger drugi
+
+
+CREATE TRIGGER [dbo].[trgSprawdzPowierzchnie] ON [dbo].[Nieruchomosc]
+INSTEAD OF INSERT
+AS
+
+BEGIN
+DECLARE @PowierzchniaCalkowita float;
+DECLARE @PowierzchniaOpodatkowania float;
+	SET	@PowierzchniaCalkowita = (SELECT PowierzchniaCalkowita FROM inserted);
+	SET	@PowierzchniaOpodatkowania = (SELECT @PowierzchniaOpodatkowania FROM inserted);
+	IF(@PowierzchniaOpodatkowania > @PowierzchniaCalkowita)
+		BEGIN 
+		RAISERROR('Sprawdz pola Powierzchni"', 14,1)
+		RETURN;
+		END
+		ELSE
+		BEGIN
+
+INSERT INTO Nieruchomosc( IDDzialalnosciGospodarczej,
+						  IDRodzajuNieruchomosci,
+						  IDAdresu,
+						  PowierzchniaCalkowita,
+						  PowierzchniaOpodatkowana
+						)
+			SELECT IDDzialalnosciGospodarczej,
+						  IDRodzajuNieruchomosci,
+						  IDAdresu,
+						  PowierzchniaCalkowita,
+						  PowierzchniaOpodatkowana
+			FROM inserted
+	END
+END
+GO
+ALTER TABLE [dbo].[Nieruchomosc] ENABLE TRIGGER [trgSprawdzPowierzchnie]
+GO
+/****** Object:  Trigger [dbo].[trgSprawdzPesel]    Script Date: 20.05.2020 21:52:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TRIGGER [dbo].[trgSprawdzPesel] ON [dbo].[Wlasciciel]
+INSTEAD OF INSERT
+AS
+
+BEGIN
+
+	DECLARE @PESEL nvarchar(10);
+	SET	@PESEL = (SELECT PESEL FROM inserted);
+	IF((LEN(@PESEL) != 9))
+		BEGIN 
+		RAISERROR('niepoprawny PESEL', 14,1)
+		RETURN;
+		END
+		ELSE
+		BEGIN
+
+
+	INSERT INTO Wlasciciel(	IDAdresDoreczen, 
+							IDAdresZamieszkania, 
+							Imie, 
+							Nazwisko, 
+							ImieOjca, 
+							ImieMatki, 
+							DrugieImie, 
+							DataUrodzenia, 
+							PESEL, 
+							Plec, 
+							NIP, 
+							REGON, 
+							RodzajDokumentu, 
+							SeriaNumerDokumentu, 
+							RodzajUbezpieczenia, 
+							WspolnoscMajatkowa, 
+							CzyWspolnoscMajatkowaUstala, 
+							DataUstaniaWspolnosci
+							)
+	SELECT					IDAdresDoreczen, 
+							IDAdresZamieszkania, 
+							Imie, 
+							Nazwisko, 
+							ImieOjca, 
+							ImieMatki, 
+							DrugieImie, 
+							DataUrodzenia, 
+							PESEL, 
+							Plec, 
+							NIP, 
+							REGON, 
+							RodzajDokumentu, 
+							SeriaNumerDokumentu, 
+							RodzajUbezpieczenia, 
+							WspolnoscMajatkowa, 
+							CzyWspolnoscMajatkowaUstala, 
+							DataUstaniaWspolnosci
+	FROM inserted
+	END
+END
+GO
+ALTER TABLE [dbo].[Wlasciciel] ENABLE TRIGGER [trgSprawdzPesel]
+GO
+USE [master]
+GO
+ALTER DATABASE [BazaNaProjekt] SET  READ_WRITE 
+GO
