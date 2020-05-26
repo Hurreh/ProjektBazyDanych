@@ -1,0 +1,229 @@
+CREATE PROC NaliczaniePodatku
+@NIP int
+AS
+BEGIN
+SELECT SUM(P * S) FROM (SELECT PowierzchniaOpodatkowana AS P, StawkaOpodatkowania AS S
+					 FROM RodzajNieruchomosci AS R INNER JOIN Nieruchomosc AS N ON R.ID = N.IDRodzajuNieruchomosci
+												   INNER JOIN Adres AS A ON A.ID = N.IDAdresu
+												   INNER JOIN TypAdresu AS T ON T.ID = A.IDTypuAdresu
+												   INNER JOIN Wlasciciel AS W ON A.ID = W.IDAdresZamieszkania
+												   INNER JOIN DzialalnoscGospodarcza AS D ON D.IDAdresDzialalnosciGospodarczej = A.ID
+					 WHERE NIP = @NIP AND T.Nazwa = 'Adres Dzialalnosci Gospodarczej') AS temp
+END
+
+--Poniżej procedury służące do dodawania nowych danych
+CREATE PROC DodajWlasciciela
+@IDAdresDoreczen int,
+@IDAdresZamieszkania int,
+@Imie nvarchar(20),
+@Nazwisko nvarchar(20),
+@ImieOjca nvarchar(20),
+@ImieMatki nvarchar(20),
+@DrugieImie nvarchar(20),
+@DataUrodzenia date,
+@PESEL nvarchar(15),
+@Plec nvarchar(10),
+@NIP int,
+@REGON int,
+@RodzajDokumentu nvarchar(30),
+@SeriaNumerDokumentu nvarchar(30),
+@RodzajUbezpieczenia nvarchar(30),
+@WspolnoscMajatkowa bit,
+@CzyWspolnoscMajatkowaUstala bit,
+@DataUstaniaWspolnosci date
+AS
+BEGIN
+INSERT INTO Wlasciciel(
+IDAdresDoreczen,
+IDAdresZamieszkania,
+Imie,
+Nazwisko,
+ImieOjca,
+ImieMatki,
+DrugieImie,
+DataUrodzenia,
+PESEL,
+Plec,
+NIP,
+REGON,
+RodzajDokumentu,
+SeriaNumerDokumentu,
+RodzajUbezpieczenia,
+WspolnoscMajatkowa,
+CzyWspolnoscMajatkowaUstala,
+DataUstaniaWspolnosci)
+VALUES(
+@IDAdresDoreczen,
+@IDAdresZamieszkania,
+@Imie,
+@Nazwisko,
+@ImieOjca,
+@ImieMatki,
+@DrugieImie,
+@DataUrodzenia,
+@PESEL,
+@Plec,
+@NIP,
+@REGON,
+@RodzajDokumentu,
+@SeriaNumerDokumentu,
+@RodzajUbezpieczenia,
+@WspolnoscMajatkowa,
+@CzyWspolnoscMajatkowaUstala,
+@DataUstaniaWspolnosci)
+END
+	
+	
+CREATE PROC DodajDzialalnosc
+@IDAdresDzialalnosciGospodarczej int,
+@IDAdresPrzechowywaniaKsiegowosci int,
+@IDStatusuDzialalnosciGospodarczej int,
+@IDKsiegowosci int,
+@NazwaPrzedsiebiorcy nvarchar(80),
+@NazwaSkrocona nvarchar(50),
+@LiczbaPracownikow int,
+@DataRozpoczeciaDzialalnosci date,
+@NumerTelefonu nvarchar(20),
+@NumerFaksu int,
+@AdresEmail nvarchar (50),
+@StronaWWW nvarchar(50),
+@NaczelnikUrzeduSkarbowego nvarchar(50),
+@ZakladPracyChronionej bit
+AS
+BEGIN
+INSERT INTO DzialalnoscGospodarcza(
+IDAdresDzialalnosciGospodarczej,
+IDAdresPrzechowywaniaKsiegowosci,
+IDStatusuDzialalnosciGospodarczej,
+IDKsiegowosci,
+NazwaPrzedsiebiorcy,
+NazwaSkrocona,
+LiczbaPracownikow,
+DataRozpoczeciaDzialalnosci,
+NumerTelefonu,
+NumerFaksu,
+AdresEmail,
+StronaWWW,
+NaczelnikUrzeduSkarbowego,
+ZakladPracyChronionej)
+VALUES(@IDAdresDzialalnosciGospodarczej,
+@IDAdresPrzechowywaniaKsiegowosci,
+@IDStatusuDzialalnosciGospodarczej,
+@IDKsiegowosci,
+@NazwaPrzedsiebiorcy,
+@NazwaSkrocona,
+@LiczbaPracownikow,
+@DataRozpoczeciaDzialalnosci,
+@NumerTelefonu,
+@NumerFaksu,
+@AdresEmail,
+@StronaWWW,
+@NaczelnikUrzeduSkarbowego,
+@ZakladPracyChronionej)
+END
+
+
+CREATE PROC dodajDzialalnoscGospodarcza
+@IDWlasciciela int,
+@IDDzialalnosciGospodarczej int
+AS 
+BEGIN
+INSERT INTO WlascicielDzialalnoscGospodarcza(IDWlasciciela, IDDzialalnosciGospodarczej)
+VALUES(@IDWlasciciela, @IDDzialalnosciGospodarczej)
+END
+
+
+CREATE PROC dodajKsiegowosc
+@Imie nvarchar(20),
+@Nazwisko nvarchar(20),
+@NIP nvarchar(15)
+AS 
+BEGIN
+INSERT INTO Ksiegowosc(
+Imie,
+Nazwisko,
+NIP
+)
+VALUES(
+@Imie,
+@Nazwisko,
+@NIP
+)
+END
+
+
+CREATE PROC dodajDzialalnoscPKD
+@IDPKD int,
+@IDDzialalnosciGospodarczej int
+AS 
+BEGIN
+INSERT INTO DzialalnoscPKD(IDPKD, IDDzialalnosciGospodarczej)
+VALUES(@IDPKD, @IDDzialalnosciGospodarczej)
+END
+
+
+CREATE PROC dodajAdres
+@IDTypuAdresu int,
+@Adresat nvarchar(20),
+@Kraj nvarchar(20),
+@Wojewodztwo nvarchar(20),
+@Powiat nvarchar(20),
+@Miejscowosc nvarchar(20),
+@KodPocztowy nvarchar(6),
+@GminaDzielnica nvarchar(20),
+@Ulica nvarchar(20),
+@NrLokalu int,
+@NrNieruchomosci int,
+@Poczta nvarchar(20)
+AS 
+BEGIN
+INSERT INTO Adres(
+IDTypuAdresu,
+Adresat,
+Kraj,
+Wojewodztwo,
+Powiat,
+Miejscowosc,
+KodPocztowy,
+[Gmina/Dzielnica],
+Ulica,
+NrLokalu,
+NrNieruchomosci,
+Poczta)
+VALUES(
+@IDTypuAdresu,
+@Adresat,
+@Kraj,
+@Wojewodztwo,
+@Powiat,
+@Miejscowosc,
+@KodPocztowy,
+@GminaDzielnica,
+@Ulica,
+@NrLokalu,
+@NrNieruchomosci,
+@Poczta)
+END
+
+
+CREATE PROC dodajNieruchomosc
+@IDDzialalnosciGospodarczej int,
+@IDRodzajuNieruchomosci int,
+@IDAdresu int,
+@PowierzchniaCalkowita float,
+@PowierzchniaOpodatkowana float
+AS
+BEGIN
+INSERT INTO Nieruchomosc(
+IDDzialalnosciGospodarczej, 
+IDRodzajuNieruchomosci, 
+IDAdresu,
+PowierzchniaCalkowita,
+PowierzchniaOpodatkowana)
+VALUES(
+@IDDzialalnosciGospodarczej,
+@IDRodzajuNieruchomosci,
+@IDAdresu,
+@PowierzchniaCalkowita,
+@PowierzchniaOpodatkowana)
+END
